@@ -15,6 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
-
-/bower_components/
-
+/bower_components
+/app/assets/stylesheets/dishes.scss
+/log/development.log

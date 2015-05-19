@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  resources :dishes, :only => [:create, :show, :index, :destroy]
+  resources :restaurants, :only => [:create, :show, :index]
+  resources :comments, :only => [:create, :show, :index, :destroy, :update]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -54,4 +58,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root 'static_pages#index'
 end
+
