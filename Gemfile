@@ -41,6 +41,10 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Debugging tools
+	gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 #-------------------------------------------------
@@ -51,6 +55,4 @@ gem 'bootstrap-sass', '~> 3.3.0'
 # Use postgresql as the database
 gem 'pg'
 
-# Debugging tools
-gem 'better_errors'
-gem 'binding_of_caller'
+
