@@ -54,3 +54,6 @@ gem 'pg'
 # Debugging tools
 gem 'better_errors'
 gem 'binding_of_caller'
+
+# Bower
+gem 'bower'
