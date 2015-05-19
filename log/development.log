@@ -30,3 +30,9 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+
+
+Started GET "/" for ::1 at 2015-05-19 16:44:45 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/xavils/.rvm/gems/ruby-2.2-head/gems/railties-4.2.1/lib/rails/templates/rails/welcome/index.html.erb (4.7ms)
+Completed 200 OK in 36ms (Views: 25.2ms | ActiveRecord: 0.0ms)
