@@ -57,3 +57,8 @@ gem 'binding_of_caller'
 
 # User Management System
 gem 'devise'
+
+# Bower
+gem 'bower'
+
+gem 'rails_12factor', group: :production
