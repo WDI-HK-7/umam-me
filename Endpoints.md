@@ -10,6 +10,8 @@
 | dish				  | DELETE         | /dishes/:id                                   | delete a dish  			 | dishes#delete 			 | on success: true, else false         |
 | dish   			  | GET*           | /dishes/:id                                   | get one dish 		     | dish#index   			 | renders one dish, else false         |
 | restaurants   | GET*           | /restaurants    												       | get all restaurants   | restaurants#index   | renders all restaurants, else false  |
+| comments		  | GET*           | /comments    												       	 | get all comments   	 | comments#index   	 | renders all comments, else false  		|
+| comments		  | POST*          | /comments/new    												     | post a comment   	 	 | comments#create   	 | on success: saved, else unsuccessful |
 
 
 
@@ -40,6 +42,12 @@
 |1      |                        | 								|  								  |
 |2      |                        | 								|   								|
 
+###Comments ==> belongs_to: users & dishes
+
+|id       | user_id        | dish_id     			 | content		   			 | created_at   | updated_at  |
+|---------|----------------|-------------------| -------------------|--------------|--------------|
+|1        | 1              | 1                 |                    |              |              |
+|2        | 1              | 2                 |                    |              |              |
 
 
 
