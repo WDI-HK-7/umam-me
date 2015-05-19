@@ -57,3 +57,6 @@ gem 'binding_of_caller'
 
 # Bower
 gem 'bower'
+
+# For Bower on Heroku
+gem 'rails_12factor', group: :production
