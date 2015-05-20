@@ -1,7 +1,7 @@
 'use strict'; // Make sure you don't have syntax errors
 
 // var app = angular.module('appName', ['oneDependency']);
-var app = angular.module('umam-me', ['ngRoute']);
+var app = angular.module('umam-me', ['ngRoute', 'infinite-scroll']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // Configure Angular Routes
@@ -17,5 +17,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     when('/signup', {
       templateUrl: "<%= asset_path('users/signup.html') %>",
       controller: 'SignUpCtrl'
+    }).
+    when('/dishes', {
+      templateUrl: "<%= asset_path('dishes/index.html') %>",
+      controller: "DishesIndexCtrl"
     })
 }]);

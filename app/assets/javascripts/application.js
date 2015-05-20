@@ -16,4 +16,5 @@
 //= require angular/angular
 //= require angular-route/angular-route
 //= require bootstrap-sprockets
+//= require ngInfiniteScroll/build/ng-infinite-scroll
 //= require_tree .
