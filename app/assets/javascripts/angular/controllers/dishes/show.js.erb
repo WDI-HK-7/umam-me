@@ -1,7 +1,7 @@
 app.controller('DishesShowCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
-	console.log("This DishesShowCtrl is working");
+  console.log("This DishesShowCtrl is working");
 
-	var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
 
   $http.get(url + 'dishes/' + $routeParams.id).success(function(response){
     $scope.dish = response;
