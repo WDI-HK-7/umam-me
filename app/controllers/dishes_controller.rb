@@ -1,11 +1,11 @@
 class DishesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
     @dishes = Dish.all
   end
 
   def create
-    # before_action :authenticate_user!
     @dish = Dish.new(dish_params)
 
     @dish.save
