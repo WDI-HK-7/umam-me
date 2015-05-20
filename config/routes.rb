@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  root 'static_pages#index'
 
   resources :dishes, :only => [:create, :show, :index, :destroy]
   resources :restaurants, :only => [:create, :show, :index]
@@ -62,6 +63,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root 'static_pages#index'
 end
 
