@@ -1,0 +1,19 @@
+app.controller('DishesCreateCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+  console.log("DishesCreateCtrl is working");
+    
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/"
+  $scope.form = {};
+  $scope.dish = {}; 
+
+  $scope.form.create = function(){
+    var data = {
+      dish: $scope.dish
+    };
+
+    console.log($scope.dish);
+    $http.post(url + "dishes", data).success(function(response){
+      console.log(response);
+      // $location.path('/dishes');
+    });
+  };
+}]);
