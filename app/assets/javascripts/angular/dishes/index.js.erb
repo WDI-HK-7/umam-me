@@ -1,0 +1,34 @@
+app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+
+  var offsetNum = 0;
+  var totalCount = 0;
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
+
+  $scope.getDishes = function(offset) {
+
+    $http.get(url + 'dishes?offset=' + offset).success(function(response){
+       console.log(response);
+    if ($scope.response === undefined) {
+        $scope.dishes = response;
+      } else {
+        response.dishes.forEach(function(element,index,array) {
+          $scope.dishes.push(element);
+        });
+        console.log($scope.dishes);
+      }
+      totalCount = response.totalCount;
+    });
+
+  };
+
+  $scope.nextPage = function() {
+    offsetNum += offsetNum < totalCount ? 5 : 0;
+    if (offsetNum < totalCount) {
+      console.log(offsetNum);
+      $scope.getDishes(offsetNum);
+    } 
+  };
+
+  $scope.getDishes(offsetNum);
+
+}]);
