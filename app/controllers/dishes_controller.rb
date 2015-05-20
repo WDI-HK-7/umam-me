@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
     @dishes = Dish.all
@@ -22,6 +22,8 @@ class DishesController < ApplicationController
   end
 
   def destroy
+    # before_action :authenticate_user!
+
     @dish = dish.find_by_id(params[:id])
 
     if @dish.nil?
