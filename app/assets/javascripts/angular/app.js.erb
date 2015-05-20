@@ -21,5 +21,13 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     when('/dishes', {
       templateUrl: "<%= asset_path('dishes/index.html') %>",
       controller: "DishesIndexCtrl"
-    })
+    }).
+    when('/dishes/:id', {
+      templateUrl: "<%= asset_path('dishes/show.html')%>", 
+      controller: "DishesShowCtrl"
+    }).
+    when('/dish/new', {
+      templateUrl: "<%= asset_path('dishes/create.html')%>", 
+      controller: "DishesCreateCtrl"
+    });
 }]);
