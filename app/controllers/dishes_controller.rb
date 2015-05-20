@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
+  # before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
     @dishes = Dish.all

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <section class="col-xs-6 col-xs-offset-3">
+      <h1>All Posts</h1>
+      <div infinite-scroll="nextPage()">
+        <div>
+          <a href="/#/dishes/{{dish.id}}">Add a dish!</a>
+        </div>
+        <div ng-repeat="dish in dishes track by $index">
+          <div class="page-header">
+<!--<img class="col-xs-12" ng-src="{{ dish.picture }}" -->
+            <a href="/#/dishes/{{dish.id}}">{{ dish.name }}</a>
+            {{ dish.content }}
+            <small>
+              {{ dish.created_at | date }}
+            </small>
+          </div>       
+        </div>
+      </div>
+    </section> 
+  </div>
+</div>
