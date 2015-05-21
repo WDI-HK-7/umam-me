@@ -29,10 +29,6 @@ class DishesController < ApplicationController
     end
   end
 
-  # def show
-  #   @dish = Dish.all.includes(:comments)
-  # end
-
   def destroy
     # before_action :authenticate_user!
 
@@ -58,7 +54,7 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:name, :content, :picture)
+    params.require(:dish).permit(:name, :content, :restaurant_name, :picture)
   end
 
 end

@@ -12,6 +12,7 @@ app.controller('DishesCreateCtrl', ['$scope', '$http', '$location', 'Upload', fu
     var data = {
       'dish[name]':    $scope.dish.name,
       'dish[content]':    $scope.dish.content,
+      'dish[restaurant_name]':    $scope.dish.restaurant_name,
     };
 
     Upload.upload({
@@ -26,5 +27,4 @@ app.controller('DishesCreateCtrl', ['$scope', '$http', '$location', 'Upload', fu
       $location.path('/dishes');
     });
   };
-
 }]);
