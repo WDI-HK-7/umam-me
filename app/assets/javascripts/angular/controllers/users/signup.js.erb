@@ -17,7 +17,12 @@ app.controller('SignUpCtrl', ['$scope', '$http', '$location', function($scope, $
     $http.post(url + 'users', data).success(function(response){
       console.log(response);
 
-      $location.path('/login');
-    });
+      $http.post(url + 'users/sign_in', data).success(function(response){
+        console.log(response);
+
+        $location.path('/dishes');
+      }); 
+    });      
+
   };
 }]);
