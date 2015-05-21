@@ -7,18 +7,18 @@ app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($sco
   $scope.dishes = [];
 
   $scope.nextPage = function() {    
-    console.log("calling nextPAge offset: " + $scope.offsetNum + " -- total:" + $scope.total);
+    console.log("calling nextPage offset: " + $scope.offsetNum + " -- total:" + $scope.total);
     
     if ($scope.offsetNum <= $scope.total) {
-      $scope.offsetNum += 5;
       
       $http.get(url + 'dishes?offset=' + $scope.offsetNum).success(function(response){
-          console.log("requesting nextPAge");
+          console.log("requesting nextPage");
           $scope.total = response.response.totalCount;
           response.response.dishes.forEach(function(element,index,array) {
             $scope.dishes.push(element);
           });
       });
+      $scope.offsetNum += 8;
     }
   };
 
