@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # resources :comments, :only => [:create, :show, :index, :destroy, :update]
   # resources :restaurants, :only => [:create, :show, :index]
 
+  get 'dishes/search' => 'dishes#search'
+  
   resources :dishes, :only => [:create, :show, :index, :destroy] do
     resources :comments, :only => [:create, :show, :index, :destroy, :update]
   end

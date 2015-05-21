@@ -2,6 +2,9 @@
   <div class="row">
     <section class="col-xs-6 col-xs-offset-3">
       <h1>All Posts</h1>
+      <div>
+        <input ng-model="dishName" ng-change="display()">
+      </div>
       <div infinite-scroll="nextPage()">
         <div>
           <a href="/#/dishes/{{dish.id}}">Add a dish!</a>

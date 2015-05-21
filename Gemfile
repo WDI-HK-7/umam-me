@@ -12,10 +12,12 @@ gem 'bower'
 gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'paperclip'
+gem 'pg_search'
 
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'meta_request'
 end
