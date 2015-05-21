@@ -2,7 +2,7 @@ class DishesController < ApplicationController
   # before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
-    @dishes = Dish.order(:created_at).limit(8).offset(params[:offset])
+    @dishes = Dish.order('id DESC').limit(8).offset(params[:offset])
   end
 
   def search
