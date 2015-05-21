@@ -11,13 +11,13 @@ gem 'pg'
 gem 'bower'
 gem 'rails_12factor', group: :production
 gem 'devise'
+gem 'pg_search'
 
 group :development, :test do
-  gem 'byebug'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'pry-byebug'
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'meta_request'
 end

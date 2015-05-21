@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <h1>Post a New Dish</h1>
+
+    <form ng-submit="form.create()">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Name" ng-model="dish.name">
+        <label>Content</label>
+        <input type="text" placeholder="Content" ng-model="dish.content">     
+      </div>
+
+<!--       <button class="btn btn-default" ngf-select ng-model="picture.files">
+        Upload
+      </button> -->
+      
+				<input type="submit">
+    </form>
+  </div>
+</div>

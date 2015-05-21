@@ -1,8 +1,12 @@
 class DishesController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :destroy]
+  # before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
-    @dishes = Dish.all
+    @dishes = Dish.order(:created_at).limit(5).offset(params[:offset])
+  end
+
+  def search
+    @dishes = Dish.search_dishes(params[:query]) if params[:query]
   end
 
   def create
