@@ -1,19 +1,30 @@
-app.controller('DishesCreateCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+app.controller('DishesCreateCtrl', ['$scope', '$http', '$location', 'Upload', function($scope, $http, $location, Upload){
+
   console.log("DishesCreateCtrl is working");
     
-  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/"
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
+
   $scope.form = {};
-  $scope.dish = {}; 
+  $scope.dish = {};
+  $scope.picture = {};
 
   $scope.form.create = function(){
     var data = {
-      dish: $scope.dish
+      'dish[name]':    $scope.dish.name,
+      'dish[content]':    $scope.dish.content,
     };
 
-    console.log($scope.dish);
-    $http.post(url + "dishes", data).success(function(response){
+    Upload.upload({
+      url: url + 'dishes',
+      method:'POST',
+      fields: data,
+      file: $scope.picture.files[0],
+      fileFormDataName: 'dish[picture]'
+    }).success(function(response){
       console.log(response);
-      // $location.path('/dishes');
+
+      $location.path('/dishes);
     });
   };
+
 }]);

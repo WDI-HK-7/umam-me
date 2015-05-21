@@ -15,6 +15,7 @@
 //= require underscore/underscore
 //= require angular/angular
 //= require angular-route/angular-route
+//= require ng-file-upload/ng-file-upload-all
 //= require bootstrap-sprockets
 //= require ngInfiniteScroll/build/ng-infinite-scroll
 //= require_tree .

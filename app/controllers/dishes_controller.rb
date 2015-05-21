@@ -5,10 +5,14 @@ class DishesController < ApplicationController
     @dishes = Dish.all
   end
 
-  def create
+  def create    
     @dish = Dish.new(dish_params)
 
-    @dish.save
+    if @dish.save
+      render :json => { message: "saved", dish: @dish }
+    else
+      render :json => { message: "not saved" }
+    end
   end
 
   def show
@@ -46,7 +50,7 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:name, :content)
+    params.require(:dish).permit(:name, :content, :picture)
   end
 
 end

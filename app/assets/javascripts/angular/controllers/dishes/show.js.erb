@@ -6,4 +6,4 @@ app.controller('DishesShowCtrl', ['$scope', '$http', '$location', '$routeParams'
   $http.get(url + 'dishes/' + $routeParams.id).success(function(response){
     $scope.dish = response;
   }); 
-}])
+}]);
