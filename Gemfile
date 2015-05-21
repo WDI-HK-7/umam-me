@@ -13,6 +13,7 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'paperclip'
 gem 'pg_search'
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'better_errors'
