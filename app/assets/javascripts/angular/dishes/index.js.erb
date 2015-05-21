@@ -7,8 +7,7 @@ app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($sco
   $scope.getDishes = function(offset) {
 
     $http.get(url + 'dishes?offset=' + offset).success(function(response){
-       console.log(response);
-    if ($scope.response === undefined) {
+      if ($scope.response === undefined) {
         $scope.dishes = response;
       } else {
         response.dishes.forEach(function(element,index,array) {
@@ -18,7 +17,6 @@ app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($sco
       }
       totalCount = response.totalCount;
     });
-
   };
 
   $scope.nextPage = function() {
@@ -30,5 +28,13 @@ app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($sco
   };
 
   $scope.getDishes(offsetNum);
+
+  $scope.display = function(){
+
+    $http.get(url + 'dishes/search?query=' + $scope.dishName).success(function(response){
+      $scope.dishes = response;
+    });
+
+  };
 
 }]);

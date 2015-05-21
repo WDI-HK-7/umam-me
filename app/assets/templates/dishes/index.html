@@ -2,6 +2,16 @@
   <div class="row">
     <section class="col-xs-6 col-xs-offset-3">
       <h1>All Posts</h1>
+      <div>
+        <input ng-model="dishName" ng-change="display()">
+      </div>
+      <div class="page-header">
+        <a href="/#/dishes/{{dish.id}}">{{ currentDish.name }}</a>
+        {{ currentDish.content }}
+        <small>
+          {{ currentDish.created_at | date }}
+        </small>
+      </div>      
       <div infinite-scroll="nextPage()">
         <div>
           <a href="/#/dishes/{{dish.id}}">Add a dish!</a>
@@ -14,7 +24,7 @@
             <small>
               {{ dish.created_at | date }}
             </small>
-          </div>       
+          </div>
         </div>
       </div>
     </section> 
