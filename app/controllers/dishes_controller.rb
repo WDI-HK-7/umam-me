@@ -2,7 +2,7 @@ class DishesController < ApplicationController
   # before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
-    @dishes = Dish.order(:created_at).limit(5).offset(params[:offset])
+    @dishes = Dish.order('id DESC').limit(8).offset(params[:offset])
   end
 
   def search
@@ -35,18 +35,12 @@ class DishesController < ApplicationController
     @dish = dish.find_by_id(params[:id])
 
     if @dish.nil?
-      render :json => {
-        :message => { :message => "Cannot find dish", :delete => false }
-      }
+      render :json => { :message => "Cannot find dish", :delete => false }
     else
       if @dish.destroy
-        render :json => {
-          :message => { :message => "Successful", :delete => true }
-        }
+        render :json => { message: "Successful", delete: true }
       else
-        render :json => {
-          :message => { :message => "Unsuccessful", :delete => false }
-        }
+        render :json => { :message => "Unsuccessful", :delete => false }
       end
     end
   end
