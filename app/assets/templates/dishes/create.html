@@ -4,11 +4,14 @@
 
     <form ng-submit="form.create()">
       <div class="form-group">
-        <label>Name</label>
-        <input type="text" placeholder="Name" ng-model="dish.name">
+        <label>Dish Name</label>
+        <input type="text" placeholder="Dish Name" ng-model="dish.name">
         
         <label>Content</label>
         <input type="text" placeholder="Content" ng-model="dish.content"> 
+
+        <label>Restaurant</label>
+        <input type="text" placeholder="Restaurant Name" ng-model="dish.restaurant_name"> 
       </div>
 
       <button class="btn btn-default" ngf-select ng-model="picture.files">

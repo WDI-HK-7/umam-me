@@ -3,6 +3,7 @@ app.controller('DishesShowCtrl', ['$scope', '$http', '$location', '$routeParams'
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
 
   $http.get(url + 'dishes/' + $routeParams.id).success(function(response){
+    console.log(response);
     $scope.dish = response;
   }); 
 

@@ -1,7 +1,7 @@
 class Dish < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search_dishes,
-    :against => [:name, :content],
+    :against => [:name, :content, :restaurant_name],
     :using => { :tsearch => {:prefix => true} }
 
   belongs_to :restaurant
