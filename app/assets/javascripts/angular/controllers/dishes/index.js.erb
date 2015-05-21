@@ -1,40 +1,34 @@
 app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
-  var offsetNum = 0;
-  var totalCount = 0;
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
 
-  $scope.getDishes = function(offset) {
+  $scope.offsetNum = 0;
+  $scope.total = 0;
+  $scope.dishes = [];
 
-    $http.get(url + 'dishes?offset=' + offset).success(function(response){
-       console.log(response);
-    if ($scope.response === undefined) {
-        $scope.dishes = response;
-      } else {
-        response.dishes.forEach(function(element,index,array) {
-          $scope.dishes.push(element);
-        });
-        console.log($scope.dishes);
-      }
-      totalCount = response.totalCount;
-    });
-
+  $scope.nextPage = function() {    
+    console.log("calling nextPAge offset: " + $scope.offsetNum + " -- total:" + $scope.total);
+    
+    if ($scope.offsetNum <= $scope.total) {
+      $scope.offsetNum += 5;
+      
+      $http.get(url + 'dishes?offset=' + $scope.offsetNum).success(function(response){
+          console.log("requesting nextPAge");
+          $scope.total = response.response.totalCount;
+          response.response.dishes.forEach(function(element,index,array) {
+            $scope.dishes.push(element);
+          });
+      });
+    }
   };
 
-  $scope.nextPage = function() {
-    offsetNum += offsetNum < totalCount ? 5 : 0;
-    if (offsetNum < totalCount) {
-      console.log(offsetNum);
-      $scope.getDishes(offsetNum);
-    } 
-  };
-
-  $scope.getDishes(offsetNum);
+  // $scope.nextPage(0);
 
   $scope.display = function(){
 
     if ($scope.dishName.length < 3) {
-      $scope.getDishes(offsetNum);
+      $scope.offsetNum=0;
+      $scope.nextPage(0);
     } else {
       $http.get(url + 'dishes/search?query=' + $scope.dishName).success(function(response){
         $scope.dishes = response;
