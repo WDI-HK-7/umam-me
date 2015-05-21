@@ -1,9 +1,24 @@
 app.controller('DishesShowCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
-  console.log("This DishesShowCtrl is working");
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
 
   $http.get(url + 'dishes/' + $routeParams.id).success(function(response){
     $scope.dish = response;
   }); 
-}])
+
+  $scope.form = {};
+
+  $scope.form.create = function(dish_id){
+    var data = {
+      comment: {
+        content: $scope.new_comment,
+        dish_id: dish_id
+      }
+    };
+
+    $http.post(url + 'dishes/'+ $routeParams.id +'/comments', data).success(function(response){
+      $scope.dish.comments.push(response);
+      $scope.new_comment = "";
+    });
+  };
+}]);

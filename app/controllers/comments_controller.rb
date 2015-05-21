@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   # Create a comment
   def create
     @comment = current_user.comments.new(comment_params)
 
     if @comment.save
-      render :json => { :message => "Successful", :saved => true }
+      render :json => @comment
     else
       render :json => { :message => "Unsuccessful", :saved => false }
     end
