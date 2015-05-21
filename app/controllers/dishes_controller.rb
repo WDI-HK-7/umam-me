@@ -2,7 +2,7 @@ class DishesController < ApplicationController
   # before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
-    @dishes = Dish.all
+    @dishes = Dish.all.includes(:comments)
   end
 
   def create
@@ -13,6 +13,7 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find_by_id(params[:id])
+    @comments = Comment.where(:dish_id => params[:id])
 
     if @dish.nil?
       render :json => {
@@ -20,6 +21,10 @@ class DishesController < ApplicationController
       }
     end
   end
+
+  # def show
+  #   @dish = Dish.all.includes(:comments)
+  # end
 
   def destroy
     # before_action :authenticate_user!

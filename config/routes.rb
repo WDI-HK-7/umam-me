@@ -10,9 +10,15 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'static_pages#index'
 
-  resources :dishes, :only => [:create, :show, :index, :destroy]
+  # resources :dishes, :only => [:create, :show, :index, :destroy] 
+  # resources :comments, :only => [:create, :show, :index, :destroy, :update]
+  # resources :restaurants, :only => [:create, :show, :index]
+
+  resources :dishes, :only => [:create, :show, :index, :destroy] do
+    resources :comments, :only => [:create, :show, :index, :destroy, :update]
+  end
+  
   resources :restaurants, :only => [:create, :show, :index]
-  resources :comments, :only => [:create, :show, :index, :destroy, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
