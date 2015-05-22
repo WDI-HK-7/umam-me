@@ -1,26 +1,64 @@
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar navbar-default" style="background-color: black;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand pageTitle" style="font-size: 30px; color: #ff0;" href="/#/dishes">umamme</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="iconWidth">
+          <a class="btn btn-default glyphicon glyphicon-plus" href="/#/dish/new" role="button"></a>
+        </li>
+        <li class="iconWidth">
+          <a class="btn btn-default glyphicon glyphicon-share" href="/#/" role="button"></a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input ng-model="dishName" ng-change="display()" type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 <div class="container">
-  <div class="row">
-    <section class="col-xs-6 col-xs-offset-3">
-      <h1>All Posts</h1>
-      <div>
-        <input ng-model="dishName" ng-change="display()">
+
+  <!-- <div masonry>
+    <div class="masonry-brick" ng-repeat="brick in bricks">
+        <img ng-src="{{ brick.src }}" alt="A masonry brick">
+    </div>
+  </div> -->
+
+<!--   <h1> Welcome to Umam-me</h1>
+  <h4> A lightweight picture sharing site for sharing your favourite plates </h4>
+ --> 
+
+  <div infinite-scroll="nextPage()" infinite-scroll-disabled="dishName.length > 2" class="row">
+    <div masonry>
+      <div ng-repeat="dish in dishes track by $index" class="masonry-brick">
+        <a href="/#/dishes/{{dish.id}}">
+          <img class="img-circle dishImg img-responsive imgBottom" ng-src="{{ dish.picture }}" alt=""/>
+          <br/>
+          <h4 class="dishName">{{ dish.name }}
+            <small class="dishRestaurant">@{{ dish.restaurant_name }}</small>
+          </h4>
+        </a>
       </div>
-      <div infinite-scroll="nextPage()">
-        <div>
-          <a href="/#/dish/new">Add a dish!</a>
-        </div>
-        <div ng-repeat="dish in dishes track by $index">
-          <div class="page-header">
-            <img class="col-xs-12" ng-src="{{ dish.picture }}">
-            <a href="/#/dishes/{{dish.id}}">{{ dish.name }}</a>
-            {{ dish.content }}
-            {{ dish.restaurant_name }}
-            <small>
-              {{ dish.created_at | date }}
-            </small>
-          </div>       
-        </div>
-      </div>
-    </section> 
+    </div>
   </div>
+
+
+
 </div>
+
