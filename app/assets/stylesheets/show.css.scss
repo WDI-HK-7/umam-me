@@ -1,7 +1,22 @@
-h1 {
-  color: #983;
+.dishName, .dishRestaurant {
+  background-color: #222;
+  opacity: 0.8;
+  display: inline-block;
+  padding: 5px;
 }
 
-h2 {
-  color: black;
+.dishName {
+  color: white;
+}
+
+.dishRestaurant {
+  color: #ff0;
+}
+
+.dishPicture {
+  margin-top: -80px;
+  position: static;
+}
+.container {
+  margin-top: 10px;
 }
