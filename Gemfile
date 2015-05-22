@@ -11,9 +11,10 @@ gem 'pg'
 gem 'bower'
 gem 'rails_12factor', group: :production
 gem 'devise'
-gem 'paperclip'
+gem "paperclip", "~> 4.2"
 gem 'pg_search'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.5.7'
+gem 'dotenv-rails', :groups => [:development, :test]
 
 group :development, :test do
   gem 'better_errors'
