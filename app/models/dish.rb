@@ -6,7 +6,7 @@ class Dish < ActiveRecord::Base
 
   belongs_to :restaurant
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :delete_all
 
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
 

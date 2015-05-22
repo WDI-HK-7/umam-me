@@ -1,0 +1,69 @@
+li {
+    width: 200px;
+    list-style-type: none;
+    padding: 6px 10px;
+}
+li:hover {
+    background: #EEE;
+}
+
+.animate-show {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    opacity: 1;
+}
+
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+    display: inline-block !important;
+}
+.animate-show.ng-hide {
+    opacity: 0;
+}
+
+.dishName, .dishRestaurant {
+  background-color: #222;
+  opacity: 1;
+  display: inline-block;
+  padding: 5px;
+  margin-right: 20px;
+}
+
+.dishName {
+  color: white;
+  max-width: 200px;
+}
+
+.dishRestaurant {
+  color: #ff0;
+}
+
+.iconWidth {
+  width: 60px;
+}
+
+.pageTitle {
+  font-family: ubuntu;
+}
+
+.navbar-nav > li > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.dishImg {
+  max-width: 250px;
+}
+.element {
+  background-color: red;
+}
+.img-responsive {
+  padding: 20px;
+}
+.container {
+  margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.imgBottom {
+  margin-bottom: -60px;
+}

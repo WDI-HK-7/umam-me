@@ -10,12 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
 //= require underscore/underscore
 //= require angular/angular
 //= require angular-route/angular-route
 //= require ng-file-upload/ng-file-upload-all
 //= require bootstrap-sprockets
 //= require ngInfiniteScroll/build/ng-infinite-scroll
+//= require angular-masonry/angular-masonry
 //= require_tree .

@@ -5,6 +5,15 @@ app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($sco
   $scope.offsetNum = 0;
   $scope.total = 0;
   $scope.dishes = [];
+  $scope.searching = false;
+  $scope.bricks = [
+    {src: "http://37.59.16.111/thumb/DaBrQitToh_w320.jpg"},
+    {src: "http://37.59.16.111/thumb/DaBrQitToh_w320.jpg"},
+    {src: "http://37.59.16.111/thumb/DaBrQitToh_w320.jpg"},
+    {src: "http://37.59.16.111/thumb/DaBrQitToh_w320.jpg"},
+    {src: "http://37.59.16.111/thumb/DaBrQitToh_w320.jpg"},
+    {src: "http://37.59.16.111/thumb/DaBrQitToh_w320.jpg"}
+  ]
 
   $scope.nextPage = function() {    
     console.log("calling nextPage offset: " + $scope.offsetNum + " -- total:" + $scope.total);
@@ -20,6 +29,7 @@ app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($sco
       });
       $scope.offsetNum += 8;
     }
+
   };
 
   // $scope.nextPage(0);
@@ -27,9 +37,12 @@ app.controller('DishesIndexCtrl', ['$scope', '$http', '$location', function($sco
   $scope.display = function(){
 
     if ($scope.dishName.length < 3) {
+      $scope.dishes = []
       $scope.offsetNum=0;
       $scope.nextPage(0);
     } else {
+      console.log("search bigger than 3");
+      // $('#infinity').removeAttr("infinite-scroll");
       $http.get(url + 'dishes/search?query=' + $scope.dishName).success(function(response){
         $scope.dishes = response;
       });
