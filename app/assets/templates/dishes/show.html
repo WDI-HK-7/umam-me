@@ -1,31 +1,56 @@
+<!-- NAVIGATION BAR -->
+<nav class="navbar navbar-default" style="background-color: black;">
+ <div class="container-fluid">
+   <!-- Brand and toggle get grouped for better mobile display -->
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+       <span class="sr-only">Toggle navigation</span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand pageTitle" style="font-size: 30px; color: #ff0;" href="/#/dishes">umamme</a>
+   </div>
+
+   </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+
 <div class="container">
   <div class="row">
-    <h1>Show One Dish</h1>
-    <img class="col-xs-12" ng-src="{{ dish.picture }}">
-    <h6> {{ dish.name }} </h6>
-    <h6> {{ dish.content }} </h6> 
-    <h6> {{ dish.restaurant_name }} </h6> 
-
-  </div>
-
-  <ul class="list-group">
-    <li class="list-group-item" ng-repeat="comment in dish.comments">
-      <div>
-        {{ comment.content }}
+    <div class="col-xs-12 col-sm-8 wrongPadding">
+      <h1 class="dishName"> {{ dish.name }}
+        <small class="dishRestaurant"> @{{ dish.restaurant_name }} </small>
+      </h1>
+      <div class=Image>
+        <img class="col-xs-12 dishPicture" style="position:static" ng-src="{{ dish.picture }}">
       </div>
-      <small>
-        {{ comment.created_at | date }}
-      </small>
-    </li>
+    </div>
+    <div class="col-xs-12 col-sm-4 sidebar" style="padding-right: 0px; padding-left: 0px;">
+      <p class="dishContent"> {{ dish.content }} </p>
+      <div class="commentsList"
+        <ul class="list-group">
+          <li class="list-group-item" style="border-right: 0; border-left: 0; border-top: thin dotted #333; border-radius: 0;" ng-repeat="comment in dish.comments">
+            <div>
+              {{ comment.content }}
+            </div>
+            <small>
+              {{ comment.created_at | date }}
+            </small>
+          </li>
 
-    <li class="list-group-item">
-      <form ng-submit="form.create(dish.id)">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Your comment" ng-model="new_comment">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-    </li>
-  </ul>
-
- </div>
+          <li class="list-group-item" style="border-right: 0; border-left: 0; border-top: thin dotted #333; border-bottom: thin dotted #333; border-radius: 0;">
+            <form ng-submit="form.create(dish.id)">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your comment" ng-model="new_comment">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,27 +1,54 @@
-<div class="container">
-  <div class="row">
-    <h1>Post a New Dish</h1>
+<!-- NAVIGATION BAR -->
+<nav class="navbar navbar-default" style="background-color: black;">
+ <div class="container-fluid">
+   <!-- Brand and toggle get grouped for better mobile display -->
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+       <span class="sr-only">Toggle navigation</span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand pageTitle" style="font-size: 30px; color: #ff0;" href="/#/dishes">umamme</a>
+   </div>
+
+   </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+<div id="postInput" class="container">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Make Us Jealous</h1>
 
     <form ng-submit="form.create()">
       <div class="form-group">
-        <label>Dish Name</label>
-        <input type="text" placeholder="Dish Name" ng-model="dish.name">
-        
-        <label>Content</label>
-        <input type="text" placeholder="Content" ng-model="dish.content"> 
-
-        <label>Restaurant</label>
-        <input type="text" placeholder="Restaurant Name" ng-model="dish.restaurant_name"> 
+        <label> I just ate.. </label>
+        <input type="text" placeholder="Dish Name" ng-model="dish.name" style="background-color:transparent;border:0px solid white;">
+        <div style="border-right: 0; border-left: 0; border-top: thin dotted #333; border-radius: 0;">
+        </div>
+        <br>
+        <label>@</label>
+        <input type="text" placeholder="Restaurant Name" ng-model="dish.restaurant_name" style="background-color:transparent;border:0px solid white;"> 
+        <div style="border-right: 0; border-left: 0; border-top: thin dotted #333; border-radius: 0;">
+        </div>
+        <br>
+        <label>And this is what I thought...</label>
+        <input placeholder="What did you think?" ng-model="dish.content" style="background-color:transparent;border:0px solid white;"> 
+        <div style="border-right: 0; border-left: 0; border-top: thin dotted #333; border-radius: 0;">
+        </div>
+        <br>
       </div>
 
       <button class="btn btn-default" ngf-select ng-model="picture.files">
-        Upload
+        Upload your mouthwatering photo
       </button>
       
-      <input type="submit">
+      <button class="btn btn-default" type="submit">Post your dish</button>
     </form>
 
     <img ngf-src="picture.files[0]" ngf-accept="'image/*'">
 
   </div>
 </div>
+
+
