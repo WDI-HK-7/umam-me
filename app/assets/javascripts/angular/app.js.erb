@@ -29,5 +29,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     when('/dish/new', {
       templateUrl: "<%= asset_path('dishes/create.html')%>", 
       controller: "DishesCreateCtrl"
-    });
+    }).
+    when('/restaurants', {
+      templateUrl: "<%= asset_path('restaurants/index.html') %>",
+      controller: "RestaurantsIndexCtrl"
+    }).
 }]);

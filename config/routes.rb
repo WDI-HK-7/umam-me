@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # resources :restaurants, :only => [:create, :show, :index]
 
   get 'dishes/search' => 'dishes#search'
+  get 'restaurants' => 'restaurants#index'
   
   resources :dishes, :only => [:create, :show, :index, :destroy] do
     resources :comments, :only => [:create, :show, :index, :destroy, :update]
